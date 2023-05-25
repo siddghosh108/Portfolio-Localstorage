@@ -213,7 +213,6 @@ function storeFormInLocalStorage(data) {
     localStorage.removeItem(storageObjectName);
   }
   localStorage.setItem(storageObjectName, objectString);
-  console.log('localstorage', localStorage.getItem(storageObjectName));
 }
 function manageEvent() {
   const name = document.getElementsByClassName('user-name')[0].value;
@@ -223,7 +222,6 @@ function manageEvent() {
   localStorageObject.email = email;
   localStorageObject.message = message;
   storeFormInLocalStorage(localStorageObject);
-  console.log('inside');
 }
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('myForm');
