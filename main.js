@@ -189,24 +189,30 @@ form.addEventListener('submit', (event) => {
 });
 
 // local-storage
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('myForm'); // Replace 'myForm' with the actual ID of your form
+function manageEvent() {
+  const name = document.getElementsByClassName('user-name')[0].value;
+  const email = document.getElementsByClassName('user-email')[0].value;
+  const message = document.getElementById('user_message').value;
+  localStorageObject.name = name;
+  localStorageObject.email = email;
+  localStorageObject.message = message;
+  storeFormInLocalStorage(localStorageObject);
+  console.log('inside');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('myForm');
 
   if (form) {
     const formInputFields = form.querySelectorAll('input, select, textarea');
-    formInputFields.forEach((field) => {
-    });
     for (let i = 0; i < formInputFields.length; i += 1) {
       formInputFields[i].addEventListener('input', manageEvent);
     }
   }
-  
 });
-
 const localStorageObject = {
-  name: '',
-  email: '',
-  message: '',
+  name:'',
+  email:'',
+  message:'',
 };
 const storageObjectName = 'formDataPm';
 
@@ -229,14 +235,4 @@ function storeFormInLocalStorage(data) {
   }
   localStorage.setItem(storageObjectName, objectString);
   console.log('localstorage', localStorage.getItem(storageObjectName));
-}
-function manageEvent() {
-  const name = document.getElementsByClassName('user-name')[0].value;
-  const email = document.getElementsByClassName('user-email')[0].value;
-  const message = document.getElementById('user_message').value;
-  localStorageObject.name = name;
-  localStorageObject.email = email;
-  localStorageObject.message = message;
-  storeFormInLocalStorage(localStorageObject);
-  console.log('inside');
 }
