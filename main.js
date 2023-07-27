@@ -214,6 +214,7 @@ function storeFormInLocalStorage(data) {
   }
   localStorage.setItem(storageObjectName, objectString);
 }
+
 function manageEvent() {
   const name = document.getElementsByClassName('user-name')[0].value;
   const email = document.getElementsByClassName('user-email')[0].value;
@@ -223,6 +224,7 @@ function manageEvent() {
   localStorageObject.message = message;
   storeFormInLocalStorage(localStorageObject);
 }
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('myForm');
   if (form) {
